@@ -19,7 +19,7 @@ const CourseListItem = () => {
             setLoader(true)
         }
         // eslint-disable-next-line
-    }, []);
+    }, [params.name, params.id]);
 
     useEffect(() => {
         if (params.name && params.id) {
@@ -32,7 +32,7 @@ const CourseListItem = () => {
 
     const quillFormat = (content) => {
         if (content) {
-            const processedHtml = content.replace(/<img/g, '<img style="max-width: 400px; height: auto;"');
+            const processedHtml = content.replace(/<img/g, '<img style="max-width: 350px; height: auto;"');
             return { __html: processedHtml };
         }
         return { __html: '' };
