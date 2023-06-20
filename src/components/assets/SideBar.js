@@ -35,7 +35,7 @@ const MyComponent = (props) => {
                 <ul className="nav sidebar-nav">
                     <div className="sidebar-header">
                         <div className="sidebar-brand">
-                            <h2 className='text-light'>Lession</h2>
+                            <h2 className='text-light'>Lessons</h2>
                         </div>
                     </div>
                     {props.lession.map(e => {

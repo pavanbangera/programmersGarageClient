@@ -80,7 +80,7 @@
 }
 
 .sidebar-nav li:hover {
-  background: skyblue !important;
+  background: rgb(48, 48, 48) !important;
   border-radius: 10px;
   margin-left: 10px;
   margin-right: 10px;
