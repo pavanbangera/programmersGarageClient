@@ -26,9 +26,9 @@ const SignupPage = () => {
     }
     return (
         <>
-            <div className="container-fluid d-flex align-items-center justify-content-center h-100">
+            <div className="container-fluid d-flex align-items-center justify-content-center" style={{ minHeight: "80vh" }}>
 
-                <form className='col-4 my-5' onSubmit={onSubmit} >
+                <form className='col-lg-4 col-md-8 my-5' onSubmit={onSubmit} >
                     <h2>SignUp to - Programmer's Garage</h2>
                     <div className="form-outline mb-2 ">
                         <input type="text" id="name" name="name" value={name} onChange={e => setName(e.target.value)} className="form-control" minLength="5" required autoComplete='User-name' />

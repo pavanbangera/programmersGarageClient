@@ -16,8 +16,8 @@ const LoginPage = () => {
 
     return (
         <>
-            <div className="container-fluid d-flex align-items-center justify-content-center h-100">
-                <form className='col-4 my-5' onSubmit={onSubmit}>
+            <div className="container-fluid d-flex align-items-center justify-content-center" style={{ minHeight: "80vh" }}>
+                <form className='col-lg-4 col-md-8 my-5' onSubmit={onSubmit}>
                     <h2>Login to - Programmer's Garage</h2>
                     <div className="form-outline mb-4 ">
                         <input type="email" id="form2Example1" className="form-control " value={email} onChange={e => setEmail(e.target.value)} required autoComplete='email' />
