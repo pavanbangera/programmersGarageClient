@@ -14,9 +14,9 @@ const BlogItem = () => {
     return (
         <div className="container my-4">
             <div className="row  d-flex justify-content-center">
+                {loader && <SpinnerBar />}
                 <div className="col-lg-8 col-lg-offset-2 align-items-center text-center">
                     {error && (<NotFound />)}
-                    {loader && <SpinnerBar />}
 
 
                     {!loader && params.id && (

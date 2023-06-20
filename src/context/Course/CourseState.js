@@ -46,7 +46,6 @@ const CourseState = (props) => {
         setProgress(70)
         if (response.status === 200) {
             const json = await response.json()
-            console.log(json)
             setLession(json)
             setLoader(false)
             setProgress(100)
