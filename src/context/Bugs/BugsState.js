@@ -4,7 +4,7 @@ import AlertContext from '../alert/AlertContext';
 
 const BugsState = (props) => {
     const { showAlert, setProgress } = useContext(AlertContext)
-    const [bugs, setBugs] = useState([])
+    const [bugs, setBugs] = useState({ userBugs: "", otherBugs: "" })
     const [comment, setComment] = useState([])
     const [loader, setLoader] = useState(true)
     const [error, setError] = useState(false)
@@ -43,10 +43,16 @@ const BugsState = (props) => {
             },
         });
         setProgress(70)
-        const json = await response.json()
-        setBugs(json)
-        setLoader(false)
-        setProgress(100)
+        if (response.status === 200) {
+            const json = await response.json()
+            setBugs(json)
+            setProgress(100)
+            setLoader(false)
+        } else {
+            setProgress(100)
+            setLoader(false)
+        }
+
 
     }
 

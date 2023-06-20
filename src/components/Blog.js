@@ -20,7 +20,7 @@ const Blog = () => {
                 <div className="container"> <div className="row "> {
 
 
-                    getBlog.map((e) => {
+                    !loader && getBlog.map((e) => {
 
                         return <div key={e._id} className="col-8 my-2">
                             <BlogList list={e} />

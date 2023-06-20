@@ -23,7 +23,7 @@ const Tutorial = () => {
 
 
 
-                        getTutorial.map((e) => {
+                        !loader && getTutorial.map((e) => {
 
                             return <div key={e._id} className="col-lg-3 col-md-6 col-sm-6 d-flex justify-content-center my-2">
                                 <TutorialList list={e} />

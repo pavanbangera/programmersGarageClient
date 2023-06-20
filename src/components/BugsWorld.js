@@ -30,7 +30,6 @@ const BugsWorld = () => {
         setLoader(true)
         getBug()
         setLoader(true)
-        console.log("hjghgh")
         // eslint-disable-next-line
     }, [])
     const stripHtmlTags = (html) => {
@@ -39,7 +38,7 @@ const BugsWorld = () => {
         return tmp.textContent || tmp.innerText || '';
     };
     return (
-        <> {localStorage.getItem('auth-token') && (<>
+        <div style={{ minHeight: "80vh" }}> {localStorage.getItem('auth-token') && (<>
             <div className="container pt-5 mb-0">
                 <div className="d-flex align-items-center justify-content-center">
                     <h1 className="me-2">Share your bugs</h1>
@@ -63,7 +62,7 @@ const BugsWorld = () => {
                             <div className="modal-body">
                                 <div className="mb-3">
                                     <label htmlFor="exampleFormControlInput1" className="form-label">Bugs Title</label>
-                                    <input type="text" className="form-control" id="title" name='title' value={title} onChange={e => setTitle(e.target.value)} placeholder="Enter the course title" required />
+                                    <input type="text" className="form-control" id="title" name='title' value={title} onChange={e => setTitle(e.target.value)} placeholder="Enter the bug title" required />
                                 </div>
                                 <Editor value={description} onChange={handleEditorChange} />
                             </div>
@@ -80,7 +79,7 @@ const BugsWorld = () => {
                 <div className="row ">
                     {
 
-                        bugs.userBugs > [0] &&
+                        !loader && bugs.userBugs >= [1] &&
                         bugs.userBugs.map((e) => {
 
                             return <div key={e._id} className="col-lg-6 col-md-12">
@@ -98,10 +97,9 @@ const BugsWorld = () => {
                                 </div>
                             </div>
 
-
                         })
                     }
-                    {bugs.userBugs < [0] && <p>not found your bugs</p>}
+                    {!loader && bugs.userBugs <= [0] && <p>not found your bugs</p>}
 
                 </div>
                 <hr />
@@ -111,12 +109,12 @@ const BugsWorld = () => {
                 <h6>Other user's bugs here</h6>
                 <div className="row "> {
 
-                    bugs.otherBugs > [0] &&
+                    !loader && bugs.otherBugs >= [1] &&
                     bugs.otherBugs.map((e) => {
 
                         return <div key={e._id} className="col-lg-6 col-md-12">
                             <div className="card text-start shadow-sm rounded">
-                                <p className="card-header">-by {e.user.name}  {dateFormat(e.date, "yyyy-mm-dd")}</p>
+                                <p className="card-header">-by {e.user?.name}  {dateFormat(e.date, "yyyy-mm-dd")}</p>
                                 <div className="card-body ">
                                     <h5 className="card-title">{e.title}</h5>
                                     <p>{stripHtmlTags(e.description.slice(0, 120))}...</p>
@@ -128,7 +126,7 @@ const BugsWorld = () => {
 
                     })
                 } </div>
-                {bugs.otherBugs < [0] && <p>not found bugs</p>}
+                {!loader && bugs.otherBugs <= [0] && <p>not found bugs</p>}
             </div>
         </>)
         }
@@ -141,7 +139,7 @@ const BugsWorld = () => {
                     </div>
                 </div>
             </>)}
-        </>
+        </div>
     )
 }
 

@@ -23,7 +23,7 @@ const Course = (props) => {
 
                 {loader && <SpinnerBar />}
 
-                {props.home && latestData.map((e) => {
+                {!loader && props.home && latestData.map((e) => {
 
                     return <div key={e._id} className="col-lg-4 col-md-6 col-sm-6 d-flex justify-content-center my-2">
                         <CourseList list={e} />
@@ -31,7 +31,7 @@ const Course = (props) => {
 
 
                 })}
-                {!props.home &&
+                {!loader && !props.home &&
 
 
                     getItem.map((e) => {

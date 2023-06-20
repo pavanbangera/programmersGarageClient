@@ -10,7 +10,7 @@ const Carosel = () => {
         <div className="card bg-dark text-white carousel-inner border-0 rounded-0">
             <img src={c1} className="card-img" alt="..." />
             <div className="card-img-overlay">
-                <div className="row h-100  ms-5 ">
+                <div className="row h-100 carosel-row ">
                     <div className="col-lg-6 col-md-12 d-flex flex-column justify-content-center">
                         <div className="text-start">
                             <h1 className='mb-3'>Welcome to Programmers's Garage</h1>

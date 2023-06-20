@@ -19,7 +19,7 @@ const CourseListItem = () => {
             setLoader(true)
         }
         // eslint-disable-next-line
-    }, [params.id]);
+    }, []);
 
     useEffect(() => {
         if (params.name && params.id) {
@@ -55,7 +55,7 @@ const CourseListItem = () => {
                             <div className="col-lg-8 col-lg-offset-2 align-items-center text-start">
                                 {error && (<NotFound />)}
 
-                                {!params.name && getLession.course >= {} && (
+                                {!loader && !params.name && getLession.course >= {} && (
                                     <>
                                         <img
                                             src={getLession.course.cover}
@@ -74,7 +74,7 @@ const CourseListItem = () => {
                                         {/* <p className='text-start'>{fetchItem.description}</p> */}
                                     </>
                                 )}
-                                {params.name && (
+                                {!loader && params.name && (
                                     <>
                                         <ReactPlayer url={getLessionData.link}
                                             className="img-fluid"

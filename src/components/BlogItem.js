@@ -19,7 +19,7 @@ const BlogItem = () => {
                     {loader && <SpinnerBar />}
 
 
-                    {params.id && (
+                    {!loader && params.id && (
                         <>
                             <h1> {detail.title}</h1>
                             <hr />

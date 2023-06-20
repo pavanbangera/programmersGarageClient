@@ -17,7 +17,7 @@ const TutorialItem = () => {
 
     const quillFormat = (content) => {
         if (content) {
-            const processedHtml = content.replace(/<img/g, '<img style="max-width: 400px; height: auto;"');
+            const processedHtml = content.replace(/<img/g, '<img style="max-width: 350px; height: auto;"');
             return { __html: processedHtml };
         }
         return { __html: '' };
@@ -30,7 +30,7 @@ const TutorialItem = () => {
                     {loader && <SpinnerBar />}
 
 
-                    {params.id && (
+                    {!loader && params.id && (
                         <>
                             <h1>Tutorial on: {detail.title}</h1>
                             <hr />
