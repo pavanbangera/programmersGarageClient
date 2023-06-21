@@ -18,7 +18,6 @@ const SignupPage = () => {
         e.preventDefault()
         if (password === cpassword) {
             Signup(name, email, password)
-            console.log(name, email, password, cpassword)
         } else {
             showAlert("Password not matching", "danger")
             setLoader(false)

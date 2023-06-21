@@ -44,6 +44,9 @@ const Navbar = (props) => {
                             <li className="nav-item">
                                 <Link className={`nav-link ${location.pathname === "/bugs" ? "active" : ""}`} to="/bugs">BugsWorld</Link>
                             </li>
+                            <li className="nav-item">
+                                <Link className={`nav-link ${location.pathname === "/contact" ? "active" : ""}`} to="/contact">Contact</Link>
+                            </li>
                             {/* <li className="nav-item dropdown">
                                 <a className="nav-link dropdown-toggle" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Dropdown
