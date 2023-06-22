@@ -22,7 +22,7 @@ const Blog = () => {
 
                     !loader && getBlog.map((e) => {
 
-                        return <div key={e._id} className="col-8 my-2">
+                        return <div key={e._id} className="col-lg-8 col-md-10 my-2">
                             <BlogList list={e} />
                         </div>
 
