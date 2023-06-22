@@ -36,7 +36,7 @@ const CommentBox = () => {
                             <div className="scrolling-body" style={{ maxHeight: "300px", overflowY: "scroll" }}>
 
                                 {comment > [0] && comment.map(data => {
-                                    return <div className="card mb-4">
+                                    return <div className="card mb-4" key={data._id}>
                                         <div className="card-body">
                                             <div className="d-flex justify-content-between">
                                                 <div className='d-flex flex-row align-items-center' dangerouslySetInnerHTML={{ __html: data.content }}></div>
