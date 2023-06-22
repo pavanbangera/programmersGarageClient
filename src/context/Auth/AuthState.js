@@ -80,9 +80,54 @@ const AuthState = (props) => {
             setLoader(false)
         }
     }
+    const ForgotPass = async (email) => {
+        setProgress(30)
+        setLoader(true)
+        const response = await fetch(`${process.env.REACT_APP_API}/api/auth/forgot`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ email }),
+        });
+        const json = await response.json()
+        if (response.status === 200) {
+            showAlert(json.msg, "success")
+            setLoader(false)
+            setProgress(100)
+        }
+        else {
+            showAlert("Email not found", "danger")
+            setLoader(false)
+            setProgress(100)
+        }
+    }
+    const ChangePass = async (id, password) => {
+        setProgress(30)
+        setLoader(true)
+        const response = await fetch(`${process.env.REACT_APP_API}/api/auth/Changepassword`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ id, password }),
+        });
+        if (response.status === 200) {
+            setLoader(false)
+            window.location.replace('/login');
+            showAlert("Password Changed Successfully! ", "success")
+            setProgress(100)
+        }
+        else {
+            setLoader(false)
+            window.location.replace('/login');
+            showAlert("Some Error occured..try again", "danger")
+            setProgress(100)
+        }
+    }
 
     return (
-        <AuthContext.Provider value={{ Login, Signup, loader, setLoader, Verify, verified }}>
+        <AuthContext.Provider value={{ Login, Signup, loader, setLoader, Verify, verified, ForgotPass, ChangePass }}>
             {props.children}
         </AuthContext.Provider>
     )

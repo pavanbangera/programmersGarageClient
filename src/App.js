@@ -28,6 +28,8 @@ import AlertState from './context/alert/AlertState'
 import TopBarLoader from './components/TopBarLoader';
 import Contact from './components/Contact';
 import Verify from './components/Verify';
+import ForgotPassword from './components/ForgotPassword';
+import ChangePassword from './components/ChangePassword';
 
 
 function App () {
@@ -67,6 +69,8 @@ function App () {
                         <Route exact path='/bugs/:bg' element={<BugsWorldItem />}></Route>
                         <Route exact path='/contact' element={<Contact />}></Route>
                         <Route exact path='/user/verify/:id' element={<Verify />}></Route>
+                        <Route exact path='/user/forgot-password' element={<ForgotPassword />}></Route>
+                        <Route exact path='/user/change-password/:id' element={<ChangePassword />}></Route>
                         <Route path='/*' element={<NotFound />}></Route>
                       </Routes>
                       <Footer />
