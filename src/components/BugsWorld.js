@@ -85,7 +85,7 @@ const BugsWorld = () => {
                             return <div key={e._id} className="col-lg-6 col-md-12">
                                 <div className="card text-start shadow-sm rounded">
                                     <div className="card-header d-flex justify-content-between">
-                                        <p className="text-start">-by {e.user.name} {dateFormat(e.date, "yyyy-mm-dd")}</p>
+                                        <p className="text-start">-by {e.user.name ? e.user.name : "unknown"} {dateFormat(e.date, "yyyy-mm-dd")}</p>
                                         <p className="text-end"> <i className="fa-solid fa-trash mx-2" onClick={() => { deleteBug(e._id) }} ></i></p>
                                     </div>
 
